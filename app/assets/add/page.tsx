@@ -82,7 +82,7 @@ const ProfileForm = () => {
                                 Contributing? Thanks! 🎉
                             </h1>
                             <p className="leading-7 [&:not(:first-child)]:mt-6 dark:text-black text-center">
-                                Hey there, I'm the developer of WebWoo (solo developer & student), well it took me some time to build this site and I'm glad you're here to contribute to the site by adding your assets. I'm really grateful for your contribution. I hope you have a great time contributing to the site. If you have any questions or need help, feel free to reach out to me on Twitter or GitHub. I'm always here to help you. Thanks again for your contribution. 🎉
+                                Hey there, I&apos;m the developer of WebWoo (solo developer &amp; student), well it took me some time to build this site and I&apos;m glad you&apos;re here to contribute to the site by adding your assets. I&apos;m really grateful for your contribution. I hope you have a great time contributing to the site. If you have any questions or need help, feel free to reach out to me on Twitter or GitHub. I&apos;m always here to help you. Thanks again for your contribution. 🎉
                             </p>
                         </div>
                     </div>
