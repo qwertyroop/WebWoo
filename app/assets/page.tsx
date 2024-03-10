@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Skeleton } from "@/components/ui/skeleton"
 import Footer from '@/components/Footer'
 
-const page = () => {
+const Assets = () => {
     // const categories = ['Inspiration', 'Generators', 'Templates', 'Tools', 'Libraries', 'Technologies', 'Animations', 'Channels', 'Extensions', 'Typography']
     const categories = ['Inspiration', 'Generators']
     const [loaded, setLoaded] = useState(false);
@@ -45,4 +45,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Assets

@@ -6,7 +6,6 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import Postcard from "@/components/Postcard"
@@ -21,7 +20,7 @@ type Post = {
     logoLink: string;
 };
 
-const page = () => {
+const Inspo = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
@@ -101,4 +100,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Inspo

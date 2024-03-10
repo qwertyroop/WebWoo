@@ -18,7 +18,7 @@ type Post = {
     logoLink: string;
 };
 
-const page = () => {
+const Generators = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
@@ -100,4 +100,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Generators
