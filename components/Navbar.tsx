@@ -63,7 +63,7 @@ const Navbar = () => {
                             WebWoo.
                         </h1>
                         <Avatar className="mx-auto">
-                                <AvatarImage src="https://ik.imagekit.io/t6luarqrmc/logo_reevolve.png?updatedAt=1709480105155" />
+                                <AvatarImage src="https://ik.imagekit.io/t6luarqrmc/webwoo/WebWoo-Logo.png?updatedAt=1710099127393" />
                                 <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
                             </Avatar>
                     </a>
@@ -93,7 +93,7 @@ const Navbar = () => {
                                     </NavigationMenuItem>
                                 </NavigationMenuList>
                             </NavigationMenu>
-                            <Toggle />
+                            {/* <Toggle /> */}
                             
                             </div>
 

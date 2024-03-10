@@ -5,13 +5,10 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import Postcard from "@/components/Postcard"
 import Footer from '@/components/Footer'
-import { Skeleton } from "@/components/ui/skeleton"
-
 type Post = {
     title: string;
     body: string;
@@ -35,7 +32,7 @@ const page = () => {
 
     return (
         <>
-            <header>
+             <header>
                 <div className="flex flex-col sm:flex-row h-16 sm:h-16 max-w-screen px-4 sm:px-6 lg:px-8 justify-between">
                     <a className="block my-auto" href="/">
                         <span className="sr-only">Home</span>

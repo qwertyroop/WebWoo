@@ -1,7 +1,6 @@
 "use client";
 import Navbar from '@/components/Navbar'
 import React from 'react'
-import Tabs from '@/components/Tabs'
 import Hero from '@/components/Hero';
 import Link from 'next/link';
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
@@ -9,10 +8,7 @@ import './globals.css'
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 
-
-
 const Home = () => {
-
 
   return (
     <>
@@ -24,9 +20,7 @@ const Home = () => {
             Explore Assets
           </Link>
         </Button>
-
       </div>
-
       <div className="flex flex-col overflow-hidden">
         <ContainerScroll
 
@@ -45,24 +39,6 @@ const Home = () => {
           }
         />
       </div>
-      
-
-      {/* <div className="flex flex-col overflow-hidden">
-      <ContainerScroll
-        users={users}
-        titleComponent={
-          <>
-            <h1 className="text-4xl font-semibold text-black dark:text-white">
-              Unleash the power of <br />
-              <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none">
-                Scroll Animations
-              </span>
-            </h1>
-          </>
-        }
-      />
-    </div> */}
-    
       <div className="container">
         <div className="scroll">
           <div className="RightToLeft text-[#d8d8d11c]">
@@ -79,6 +55,5 @@ const Home = () => {
     </>
   )
 }
-
 
 export default Home
