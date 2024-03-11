@@ -14,15 +14,20 @@ export default async function handler(req, res) {
 
                 client.close();
                 res.setHeader('Content-Type', response.headers['content-type']);
-                return res.end(response.data);
+                res.end(response.data);
             } catch (error) {
                 client.close();
-                return res.status(500).json({ message: 'Error fetching image' });
+                res.status(500).json({ message: 'Error fetching image' });
             }
         } else {
-            const posts = await tools.find({}, { projection: { title: 1, body: 1, src: 1 , siteLink: 1, category : 1, logoLink : 1} }).toArray();
-            client.close();
-            res.json(posts);
+            try {
+                const posts = await tools.find({}, { projection: { title: 1, body: 1, src: 1, siteLink: 1, category: 1, logoLink: 1 } }).toArray();
+                client.close();
+                res.json(posts);
+            } catch (error) {
+                client.close();
+                res.status(500).json({ message: 'Error fetching posts' });
+            }
         }
     }
 }

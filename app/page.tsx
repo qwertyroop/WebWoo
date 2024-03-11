@@ -4,7 +4,6 @@ import React from 'react'
 import Hero from '@/components/Hero';
 import Link from 'next/link';
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import './globals.css'
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 

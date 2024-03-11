@@ -30,6 +30,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { useState } from "react"
+import Image from "next/image"
 
 interface PostcardProps {
   title: string;
@@ -52,9 +53,7 @@ const CardWithForm: React.FC<PostcardProps> = ({ title, body, src, siteLink, cat
       <CardContent>
         <Dialog>
           <DialogTrigger>
-            {
-              loaded ? (<img src={src} alt="" loading="lazy" className="object-cover rounded-lg" onLoad={() => setLoaded(true)} />) : (<Skeleton className="aspect-video object-cover rounded-xl" />)
-            }
+            <Image src={src} alt="" width={1906} height={917} loading="lazy" className="object-cover rounded-lg" />
 
           </DialogTrigger>
           <DialogContent>
@@ -66,7 +65,7 @@ const CardWithForm: React.FC<PostcardProps> = ({ title, body, src, siteLink, cat
               </DialogTitle>
               <DialogDescription className="flex flex-col">
                 <div className="flex lg:flex-row justify-between flex-col">
-                  <img src={src} alt="" className="my-5 rounded-lg lg:max-w-md lg:h-64 max-h-64 " />
+                  <Image src={src} width={1906} height={917} alt="" className="my-5 rounded-lg lg:max-w-md lg:h-64 max-h-64 " />
                   <div>
                     <div className="p-4 pl-8 lg:text-lg text-[#cccccc]">
                       <p className="mb-10 mt-1">{body}</p>

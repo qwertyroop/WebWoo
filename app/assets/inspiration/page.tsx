@@ -58,7 +58,7 @@ const Inspo = () => {
                                     </BreadcrumbItem>
                                     <BreadcrumbSeparator />
                                     <BreadcrumbItem>
-                                        <BreadcrumbLink href="/assets/tools">Inspiration</BreadcrumbLink>
+                                        <BreadcrumbLink href="/assets/inspiration">Inspiration</BreadcrumbLink>
                                     </BreadcrumbItem>
                                 </BreadcrumbList>
                             </Breadcrumb>
