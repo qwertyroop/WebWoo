@@ -78,7 +78,7 @@ const Generators = () => {
                                                 <Postcard
                                                     title={post.title}
                                                     body={post.body}
-                                                    src={`/api/generators?url=${encodeURIComponent(post.src)}`}
+                                                    src={post.src}
                                                     siteLink={post.siteLink}
                                                     category={post.category}
                                                     logoLink={post.logoLink}
