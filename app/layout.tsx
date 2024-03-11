@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import Head from "next/head"; 
-import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
 
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "WebWoo",
@@ -41,16 +38,11 @@ export default function RootLayout({
 
       </Head>
       <body className='font-[sfReg]'>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        
           {children}
           <Analytics />
           <Toaster />
-        </ThemeProvider>
+        
       </body>
     </html>
   );

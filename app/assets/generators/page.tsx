@@ -20,7 +20,7 @@ type Post = {
 
 const Generators = () => {
     const [posts, setPosts] = useState<Post[]>([]);
-
+    
     useEffect(() => {
         fetch('/api/generators')
             .then(response => response.json())
@@ -32,11 +32,11 @@ const Generators = () => {
 
     return (
         <>
-             <header>
+             <header className='pt-6 lg:pt-0'>
                 <div className="flex flex-col sm:flex-row h-16 sm:h-16 max-w-screen px-4 sm:px-6 lg:px-8 justify-between">
                     <a className="block my-auto" href="/">
                         <span className="sr-only">Home</span>
-                        <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl">
+                        <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl text-center lg:text-start">
                             WebWoo.
                         </h1>
                     </a>
@@ -44,7 +44,7 @@ const Generators = () => {
                     <div className='my-auto'>
 
                     </div>
-                    <div className="flex items-center gap-4 mt-4 sm:mt-0">
+                    <div className="flex items-center gap-4 mt-4 sm:mt-0 justify-center">
                         <div className="sm:flex sm:gap-4">
                             <Breadcrumb>
                                 <BreadcrumbList>
@@ -57,7 +57,7 @@ const Generators = () => {
                                     </BreadcrumbItem>
                                     <BreadcrumbSeparator />
                                     <BreadcrumbItem>
-                                        <BreadcrumbLink href="/assets/tools">Generators</BreadcrumbLink>
+                                        <BreadcrumbLink href="/assets/generators">Generators</BreadcrumbLink>
                                     </BreadcrumbItem>
                                 </BreadcrumbList>
                             </Breadcrumb>
@@ -68,7 +68,7 @@ const Generators = () => {
             </header>
             <div>
                 <main>
-                    <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-10 sm:mt-8 h-auto min-h-screen">
+                    <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-10 sm:mt-8 h-auto ">
                         <div className="py-8">
                             <div className="h-auto">
                                 <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-4">

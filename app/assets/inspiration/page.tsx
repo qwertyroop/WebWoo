@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from 'react'
-import './loadingScreen.css'
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -10,8 +9,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import Postcard from "@/components/Postcard"
 import Footer from '@/components/Footer'
-import { AnimatePresence } from "framer-motion";
-import { motion } from "framer-motion"
+
 
 
 type Post = {

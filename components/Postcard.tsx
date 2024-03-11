@@ -80,7 +80,7 @@ const CardWithForm: React.FC<PostcardProps> = ({ title, body, src, siteLink, cat
                   </div>
                 </div>
                 <div>
-                  <ScrollArea className="h-[200px] w-full rounded-md border p-4">
+                  <ScrollArea className="h-[200px] w-full rounded-md p-4">
                     <Table>
 
                       <TableHeader>
