@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import Head from "next/head"; 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
 
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "WebWoo",
@@ -40,7 +40,7 @@ export default function RootLayout({
         <meta property="twitter:image" content="https://ik.imagekit.io/t6luarqrmc/webwoo/share_banner.png?updatedAt=1710098102539" />
 
       </Head>
-      <body className={inter.className}>
+      <body className='font-[sfReg]'>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -135,7 +135,7 @@ export const Card = ({
             }}
           >
             {!loaded && <Skeleton className=" aspect-video rounded-xl" />}
-            <img src={`/api/generators?url=${encodeURIComponent(post.src)}`} alt="hey" className="aspect-video rounded-xl" onLoad={() => setLoaded(true)} />
+            <img src={post.src} alt="Site Image" className="aspect-video rounded-xl" onLoad={() => setLoaded(true)} />
             <div className="text-white p-2">{post.title}</div>
 
           </motion.div>
@@ -150,7 +150,7 @@ export const Card = ({
                 "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
             }}
           >
-            <img src={`/api/generators?url=${encodeURIComponent(post.src)}`} alt="hey" className="aspect-video" />
+            <img src={post.src} alt="Site Image" className="aspect-video" />
             <div className="text-white p-2">{post.title}</div>
 
           </motion.div>

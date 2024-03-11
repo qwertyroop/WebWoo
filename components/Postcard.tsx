@@ -59,15 +59,22 @@ const CardWithForm: React.FC<PostcardProps> = ({ title, body, src, siteLink, cat
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
-                <h1 className="scroll-m-20 text-3xl font-semibold text-gray-300 tracking-tight lg:text-5xl">
-                  {title}
-                </h1>
+                <div className="flex flex-row gap-5">
+                  <Avatar className=" h-12 w-12">
+                    <AvatarImage src={logoLink} />
+                    <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
+                  </Avatar>
+                  <h1 className="scroll-m-20 text-3xl font-semibold text-black tracking-tight lg:text-5xl ">
+                    {title}
+                  </h1>
+
+                </div>
               </DialogTitle>
               <DialogDescription className="flex flex-col">
                 <div className="flex lg:flex-row justify-between flex-col">
-                  <Image src={src} width={1906} height={917} alt="" className="my-5 rounded-lg lg:max-w-md lg:h-64 max-h-64 " />
+                  <Image src={src} width={1906} height={917} alt="" className="my-5 rounded-lg lg:max-w-md lg:h-58 max-h-64 " />
                   <div>
-                    <div className="p-4 pl-8 lg:text-lg text-[#cccccc]">
+                    <div className="p-4 pl-8 lg:text-lg text-black">
                       <p className="mb-10 mt-1">{body}</p>
                     </div>
                   </div>
@@ -101,8 +108,13 @@ const CardWithForm: React.FC<PostcardProps> = ({ title, body, src, siteLink, cat
                 </div>
               </DialogDescription>
               <div className="flex flex-row justify-center ">
-                <Button asChild className="mx-auto mt-5">
+                {/* <Button asChild className="mx-auto mt-5">
                   <Link href={siteLink}>Visit</Link>
+                </Button> */}
+                <Button asChild className='bg-[#d1d4ff] text-black hover:bg-[#d1d4ff] hover:text-black  rounded-full p-4 mt-5 uppercase'>
+                  <Link href={siteLink} className='text-lg font-semibold'>
+                  Visit Site
+                  </Link>
                 </Button>
               </div>
             </DialogHeader>

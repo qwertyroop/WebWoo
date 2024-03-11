@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react'
-import Toggle from '@/components/Toggle'
+import './loadingScreen.css'
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -10,6 +10,9 @@ import {
 } from "@/components/ui/breadcrumb"
 import Postcard from "@/components/Postcard"
 import Footer from '@/components/Footer'
+import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion"
+
 
 type Post = {
     title: string;
@@ -23,21 +26,26 @@ type Post = {
 const Inspo = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState(true);
+    const [isLoaded, setIsLoaded] = useState(false);
+
     useEffect(() => {
         fetch('/api/inspiration')
             .then(response => response.json())
             .then(data => {
-                setPosts(data);
-                setLoading(false);
+                setTimeout(() => {
+                    setPosts(data);
+                    setLoading(false);
+                    setIsLoaded(true);
+                }, 1000);
             });
     }, []);
     return (
         <>
-            <header>
+            <header className='pt-6 lg:pt-0'>
                 <div className="flex flex-col sm:flex-row h-16 sm:h-16 max-w-screen px-4 sm:px-6 lg:px-8 justify-between">
                     <a className="block my-auto" href="/">
                         <span className="sr-only">Home</span>
-                        <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl">
+                        <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl text-center lg:text-start">
                             WebWoo.
                         </h1>
                     </a>
@@ -45,7 +53,7 @@ const Inspo = () => {
                     <div className='my-auto'>
 
                     </div>
-                    <div className="flex items-center gap-4 mt-4 sm:mt-0">
+                    <div className="flex items-center gap-4 mt-4 sm:mt-0 justify-center">
                         <div className="sm:flex sm:gap-4">
                             <Breadcrumb>
                                 <BreadcrumbList>
@@ -95,7 +103,6 @@ const Inspo = () => {
 
             </div>
             <Footer />
-
         </>
     )
 }

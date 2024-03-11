@@ -4,6 +4,16 @@ import Link from "next/link"
 import Toggle from "@/components/Toggle"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Dialog, Disclosure } from "@headlessui/react";
+import {
+    ArrowPathIcon,
+    Bars3Icon,
+    ChartPieIcon,
+    CursorArrowRaysIcon,
+    FingerPrintIcon,
+    SquaresPlusIcon,
+    XMarkIcon,
+} from '@heroicons/react/24/outline'
 
 import {
     NavigationMenu,
@@ -14,45 +24,11 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
 
-const components: { title: string; href: string; description: string }[] = [
-    {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
-        description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
-    },
-    {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
-        description:
-            "For sighted users to preview content available behind a link.",
-    },
-    {
-        title: "Progress",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
-]
 const Navbar = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
     return (
         <>
             <header>
@@ -63,42 +39,79 @@ const Navbar = () => {
                             WebWoo.
                         </h1>
                         <Avatar className="mx-auto">
-                                <AvatarImage src="https://ik.imagekit.io/t6luarqrmc/webwoo/WebWoo-Logo.png?updatedAt=1710099127393" />
-                                <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
-                            </Avatar>
+                            <AvatarImage src="https://ik.imagekit.io/t6luarqrmc/webwoo/WebWoo-Logo.png?updatedAt=1710099127393" />
+                            <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
+                        </Avatar>
                     </a>
 
                     <div className="flex flex-1 items-center justify-end md:justify-between">
                         <nav aria-label="Global" className="hidden md:block">
-                            
                         </nav>
+                        <div className=" flex items-center gap-4">
+                            <div className="hidden lg:flex sm:gap-4">
+                                <NavigationMenu>
+                                    <NavigationMenuList>
+                                        <NavigationMenuItem>
+                                            <Link href="/about" legacyBehavior passHref >
+                                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                    <Button className='bg-[#d1d4ff] text-black hover:bg-[#d1d4ff] hover:text-black rounded-full font-[sfMed] transition-all'>
+                                                        About
+                                                    </Button>
+                                                </NavigationMenuLink>
+                                            </Link>
+                                        </NavigationMenuItem>
+                                        <NavigationMenuItem>
+                                            <Link href="/assets/add" legacyBehavior passHref>
+                                                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                <Button className='bg-[#d1d4ff] text-black hover:bg-[#d1d4ff] hover:text-black rounded-full font-[sfMed] transition-all'>
+                                                        Add Asset
+                                                    </Button>
+                                                </NavigationMenuLink>
+                                            </Link>
+                                        </NavigationMenuItem>
+                                    </NavigationMenuList>
+                                </NavigationMenu>
+                                {/* <Toggle /> */}
 
-                        <div className="flex items-center gap-4">
-                            <div className="sm:flex sm:gap-4">
-                            <NavigationMenu>
-                                <NavigationMenuList>
-                                 <NavigationMenuItem>
-                                        <Link href="/about" legacyBehavior passHref>
-                                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                                About
-                                            </NavigationMenuLink>
-                                        </Link>
-                                    </NavigationMenuItem>
-                                 <NavigationMenuItem>
-                                        <Link href="/assets/add" legacyBehavior passHref>
-                                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                                Add Asset
-                                            </NavigationMenuLink>
-                                        </Link>
-                                    </NavigationMenuItem>
-                                </NavigationMenuList>
-                            </NavigationMenu>
-                            {/* <Toggle /> */}
-                            
                             </div>
+
+                            <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
+                                <div className="fixed inset-0 z-10" />
+                                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+
+                                    <button
+                                        type="button"
+                                        className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        <span className="sr-only">Close menu</span>
+                                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                    </button>
+
+                                    <NavigationMenu>
+                                        <NavigationMenuList>
+                                            <NavigationMenuItem>
+                                                <Link href="/about" legacyBehavior passHref>
+                                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                        About
+                                                    </NavigationMenuLink>
+                                                </Link>
+                                            </NavigationMenuItem>
+                                            <NavigationMenuItem>
+                                                <Link href="/assets/add" legacyBehavior passHref>
+                                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                                        Add Asset
+                                                    </NavigationMenuLink>
+                                                </Link>
+                                            </NavigationMenuItem>
+                                        </NavigationMenuList>
+                                    </NavigationMenu>
+                                </Dialog.Panel>
+                            </Dialog>
 
                             <button
                                 className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+                                onClick={() => setMobileMenuOpen(true)}
                             >
                                 <span className="sr-only">Toggle menu</span>
                                 <svg
@@ -107,16 +120,17 @@ const Navbar = () => {
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    stroke-width="2"
+                                    strokeWidth="2"
                                 >
-                                    <path stroke-linecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             </button>
                         </div>
                     </div>
                 </div>
-            </header>
-            
+
+            </header >
+
         </>
     )
 }

@@ -1,8 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
  
 @layer base {
+  @font-face {
+    font-family: 'Thunder';
+    src: url('/thunder-bold-lc.ttf');
+    
+  }
+
+
+  @font-face {
+    font-family: 'sfReg';
+    src: url(/fonts/SFUIDisplay-Regular.otf);
+  }
+
+  @font-face {
+    font-family: 'sfMed';
+    src: url(/fonts/SFUIDisplay-Medium.otf);
+  }
+
+  @font-face {
+    font-family: 'sfBold';
+    src: url(/fonts/SFUIDisplay-Bold.ttf);
+  }
+
+  @font-face {
+    font-family: 'sfLight';
+    src: url(/fonts/SFUIDisplay-Light.ttf);
+  }
+
+  @font-face {
+    font-family: 'sfSemiBlack';
+    src: url(/fonts/SFUIDisplay-Black.otf);
+  }
+
+  @font-face {
+    font-family: 'sfHeavy';
+    src: url(/fonts/SFUIDisplay-Heavy.otf);
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;

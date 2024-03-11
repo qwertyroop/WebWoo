@@ -21,13 +21,13 @@ const Assets = () => {
     return (
         <>
             <Navbar />
-            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 lg:p-8 md:p-4 p-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 lg:p-8 md:p-4 p-6">
                 {
                     categories.map((category, index) => (
                         <div key={index}>
                             {loaded ? (
                                 <Link href={`/assets/${category.toLowerCase()}`}>
-                                    <div className="aspect-video rounded-lg dark:bg-gray-200 bg-[#09090b] flex flex-col items-center justify-center lg:hover:scale-105 sm:hover:scale-95 transition-all ">
+                                    <div className="aspect-video rounded-lg dark:bg-[#d0d0c6] bg-[#09090b] flex flex-col items-center justify-center lg:hover:scale-105 sm:hover:scale-95 transition-all ">
                                         <div className="flex items-center justify-center transition-all pb-3">
                                             <h1 className='dark:text-black text-white font-extrabold md:text-6xl text-5xl'>{category}</h1>
                                         </div>
