@@ -73,15 +73,6 @@ export const Header = ({ translate, titleComponent }: any) => {
 };
 
 
-type Post = {
-  title: string;
-  body: string;
-  src: string;
-  siteLink: string;
-  category: string;
-  logoLink: string;
-};
-
 export const Card = ({
   rotate,
   scale,
@@ -94,25 +85,36 @@ export const Card = ({
 
 }) => {
 
-  const [postsInspo, setpostsInspo] = useState<Post[]>([]);
-  const [postsGen, setpostsGen] = useState<Post[]>([]);
+  
   const [loaded, setLoaded] = useState(false);
-    useEffect(() => {
-    fetch('/api/inspiration')
-      .then(response => response.json())
-      .then(data => {
-        setpostsInspo(data);
-      });
-  }, []);
 
-  useEffect(() => {
-    fetch('/api/generators')
-      .then(response => response.json())
-      .then(data => {
-        setpostsGen(data);
-      });
-  }, []);
-
+  const postsArray = [
+    {
+      title: "Footer",
+      src: "https://ik.imagekit.io/t6luarqrmc/image.png",
+    },
+    {
+      title: "Awwwards",
+      src: "https://ik.imagekit.io/t6luarqrmc/Screenshot%202024-03-10%20213324.png",
+    },
+    {
+      title: "Minimal Design",
+      src: "https://ik.imagekit.io/t6luarqrmc/webwoo/image.png?updatedAt=1710087935106",
+    },
+    {
+      title: "UIJar",
+      src: "https://ik.imagekit.io/t6luarqrmc/webwoo/image2.png?updatedAt=1710088190012",
+    },
+    {
+      title: "Lapa Ninja",
+      src: "https://ik.imagekit.io/t6luarqrmc/webwoo/lapa?updatedAt=1710088513213",
+    },
+    {
+      title: "Ecomm Design",
+      src: "https://ik.imagekit.io/t6luarqrmc/webwoo/image.png?updatedAt=1710086896549",
+    },
+    
+  ]
   return (
     <motion.div
       style={{
@@ -123,38 +125,27 @@ export const Card = ({
       }}
       className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
-      <div className="bg-[#09090d] h-full w-full rounded-2xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 overflow-hidden p-12">
-        {postsInspo.map((post, index) => (
+
+      <div className="bg-[#09090d] h-full w-full rounded-2xl grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 overflow-hidden p-12">
+        {postsArray.map((post, index) => (
           <motion.div
             key={index}
-            className=" rounded-md cursor-pointer relative aspect-video w-full"
+            className="rounded-md cursor-pointer relative aspect-video w-full"
             style={{ translateY: translate }}
             whileHover={{
               boxShadow:
                 "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
             }}
           >
-            {!loaded && <Skeleton className=" aspect-video rounded-xl" />}
-            <img src={post.src} alt="Site Image" className="aspect-video rounded-xl" onLoad={() => setLoaded(true)} />
-            <div className="text-white p-2">{post.title}</div>
+
+            <div className="hover:scale-105 transition-all duration-500">
+              <img src={post.src} alt="Site Image" className="aspect-video rounded-xl" />
+              <div className="text-white p-2">{post.title}</div>
+            </div>
 
           </motion.div>
         ))}
-        {postsGen.map((post, index) => (
-          <motion.div
-            key={index}
-            className=" rounded-md cursor-pointer relative aspect-video w-full"
-            style={{ translateY: translate }}
-            whileHover={{
-              boxShadow:
-                "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-            }}
-          >
-            <img src={post.src} alt="Site Image" className="aspect-video" />
-            <div className="text-white p-2">{post.title}</div>
-
-          </motion.div>
-        ))}
+       
       </div>
     </motion.div>
   );

@@ -11,6 +11,8 @@ import Postcard from "@/components/Postcard"
 import Footer from '@/components/Footer'
 import { Skeleton } from '@/components/ui/skeleton'
 
+
+
 type Post = {
     title: string;
     body: string;
@@ -25,7 +27,7 @@ const Inspo = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        fetch('/api/generators')
+        fetch('/api/uielements')
             .then(response => response.json())
             .then(data => {
                 setTimeout(() => {
@@ -61,7 +63,7 @@ const Inspo = () => {
                                     </BreadcrumbItem>
                                     <BreadcrumbSeparator />
                                     <BreadcrumbItem>
-                                        <BreadcrumbLink href="/assets/generators">Generators</BreadcrumbLink>
+                                        <BreadcrumbLink href="/assets/inspiration">UI Elements</BreadcrumbLink>
                                     </BreadcrumbItem>
                                 </BreadcrumbList>
                             </Breadcrumb>

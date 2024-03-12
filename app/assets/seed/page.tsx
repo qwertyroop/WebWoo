@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
 import {
     Form,
     FormControl,
@@ -32,28 +33,37 @@ const formSchema = z.object({
     src: z.string().url({
         message: "Check the link again!",
     }),
-    email: z.string().email({
-        message: "Sure? this is your address?",
-    }).optional(),
+    siteLink: z.string().url({
+        message: "Check the link again!",
+    }),
+    category: z.string().min(2, {
+        message: "Duh! Atleast 2 characters.",
+    }),
+    logoLink: z.string().url({
+        message: "Check the link again!",
+    }),
 
 });
 
 
-
-const ProfileForm = () => {
+const seed = () => {
+    const [message, setMessage] = useState("");
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             title: "",
             body: "",
             src: "",
-            email: "",
+            siteLink: "",
+            category: "UI Elements",
+            logoLink: "",
 
         },
     })
     const { toast } = useToast()
-   async function onSubmit(values: z.infer<typeof formSchema>) {
-        const response = await fetch('/api/newasset', {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        setMessage("Loading...")
+        const response = await fetch('/api/seeder', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(values),
@@ -65,21 +75,25 @@ const ProfileForm = () => {
             toast({
                 title: "Hurray! 🎉",
                 description: "Thanks for the contribution!",
-            })}}
+            })
+            setMessage("")
+        }
+    }
 
     return (
         <>
-            <div className="lg:overflow-hidden h-screen">
+            <div className=" h-screen">
                 <Navbar />
+                <h1 className="text-center text-xl">{message}</h1>
                 <div className="flex flex-col lg:flex-row lg:justify-between">
                     <div className="h-auto lg:w-[50%] w-full">
-                        <div className=" m-8 rounded-lg p-8 lg:h-[80%]">
+                        <div className="dark:bg-white bg-black dark:text-black text-white m-8 rounded-lg p-8 lg:h-[80%]">
                             <Avatar className="mx-auto h-32 w-32">
                                 <AvatarImage src="https://ik.imagekit.io/t6luarqrmc/logo_reevolve.png?updatedAt=1709480105155" />
-                                <AvatarFallback>WW</AvatarFallback>
+                                <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
                             </Avatar>
                             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl dark:text-black text-center mt-5">
-                                Your contribution helps us improve 🎉
+                                Contributing? Thanks! 🎉
                             </h1>
                             <p className="leading-7 [&:not(:first-child)]:mt-6 dark:text-black text-center">
                                 Hey there, I&apos;m the developer of WebWoo (solo developer &amp; student), well it took me some time to build this site and I&apos;m glad you&apos;re here to contribute to the site by adding your assets. I&apos;m really grateful for your contribution. I hope you have a great time contributing to the site. If you have any questions or need help, feel free to reach out to me on Twitter or GitHub. I&apos;m always here to help you. Thanks again for your contribution. 🎉
@@ -133,7 +147,7 @@ const ProfileForm = () => {
                                             name="src"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Link of the site</FormLabel>
+                                                    <FormLabel>imagekit</FormLabel>
                                                     <FormControl>
                                                         <Input placeholder="avengers.com? nahh!"{...field} />
                                                     </FormControl>
@@ -143,12 +157,38 @@ const ProfileForm = () => {
                                         />
                                         <FormField
                                             control={form.control}
-                                            name="email"
+                                            name="siteLink"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel>Your Email (optional)</FormLabel>
+                                                    <FormLabel>site link</FormLabel>
                                                     <FormControl>
-                                                        <Input placeholder="thor@asgard.com"{...field} />
+                                                        <Input {...field} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="category"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>category</FormLabel>
+                                                    <FormControl>
+                                                        <Input {...field} />
+                                                    </FormControl>
+                                                    <FormMessage />
+                                                </FormItem>
+                                            )}
+                                        />
+                                        <FormField
+                                            control={form.control}
+                                            name="logoLink"
+                                            render={({ field }) => (
+                                                <FormItem>
+                                                    <FormLabel>logo</FormLabel>
+                                                    <FormControl>
+                                                        <Input {...field} />
                                                     </FormControl>
                                                     <FormMessage />
                                                 </FormItem>
@@ -178,4 +218,4 @@ const ProfileForm = () => {
     );
 }
 
-export default ProfileForm
+export default seed

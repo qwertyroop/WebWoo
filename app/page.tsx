@@ -5,7 +5,18 @@ import Link from 'next/link';
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 
 
 const Home = () => {
@@ -16,9 +27,14 @@ const Home = () => {
       <div className='bg-[#f5f3ef] text-black'>
         <Navbar />
         <Hero />
+
+       
+        
+
+
         <div className=' w-max flex flex-row mx-auto mt-16 rounded-lg' >
-          <Button asChild className='bg-[#d1d4ff] text-black hover:bg-[#d1d4ff] hover:text-black hover:scale-105 transition-all rounded-full p-4'>
-            <Link href="/assets" className='text-xl font-semibold'>
+          <Button asChild className='bg-[#d1d4ff] text-black hover:bg-[#d1d4ff] hover:text-black hover:scale-105 transition-all rounded-full font-semibold w-48 h-14 text-xl'>
+            <Link href="/assets" className=' '>
               Explore Assets
             </Link>
           </Button>
@@ -41,18 +57,7 @@ const Home = () => {
             }
           />
         </div>
-        {/* <div className="container bg-transparent">
-          <div className="scroll">
-            <div className="RightToLeft text-[#d8d8d19a]">
-              <p>Designs Inspirations Tools Typography&nbsp;</p>
-              <p>Designs Inspirations Tools Typography&nbsp;</p>
-            </div>
-            <div className="LeftToRight mt-20 text-[#d8d8d19a]">
-              <p>Learning Technologies Converters Development&nbsp;</p>
-              <p>Learning Technologies Converters Development&nbsp;</p>
-            </div>
-          </div>
-        </div> */}
+
         <Footer />
       </div>
 

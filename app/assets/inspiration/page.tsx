@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/breadcrumb"
 import Postcard from "@/components/Postcard"
 import Footer from '@/components/Footer'
+import { Skeleton } from '@/components/ui/skeleton'
 
 
 
@@ -23,7 +24,6 @@ type Post = {
 
 const Inspo = () => {
     const [posts, setPosts] = useState<Post[]>([]);
-    const [loading, setLoading] = useState(true);
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -32,7 +32,6 @@ const Inspo = () => {
             .then(data => {
                 setTimeout(() => {
                     setPosts(data);
-                    setLoading(false);
                     setIsLoaded(true);
                 }, 1000);
             });
@@ -73,12 +72,30 @@ const Inspo = () => {
                     </div>
                 </div>
             </header>
+
             <div>
                 <main>
                     <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 lg:mt-10 sm:mt-8 h-auto">
+                        <div className='py-8'>
+                            {
+                                isLoaded ? null : (
+                                    <div className="py-8">
+                                        <div className="h-auto">
+                                            <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                                <Skeleton className="aspect-video rounded-xl" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                        </div>
                         <div className="py-8">
                             <div className="h-auto">
-                                <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-4">
+                                <div className="p-8 grid grid-cols-1 lg:grid-cols-2 gap-4">
                                     {
                                         posts.map((post, index) => (
                                             <Postcard
@@ -97,8 +114,6 @@ const Inspo = () => {
                         </div>
                     </div>
                 </main>
-
-
             </div>
             <Footer />
         </>

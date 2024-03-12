@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 
 const Assets = () => {
     // const categories = ['Inspiration', 'Generators', 'Templates', 'Tools', 'Libraries', 'Technologies', 'Animations', 'Channels', 'Extensions', 'Typography']
-    const categories = ['Inspiration', 'Generators']
+    const categories = ['Inspiration', 'Generators', 'UIElements']
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
