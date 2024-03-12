@@ -121,12 +121,12 @@ const Navbar = () => {
                             <AvatarFallback className="font-extrabold p-4">Ww</AvatarFallback>
                         </Avatar>
                     </a>
-                    <AlertDialog open={isDialogOpen} onDismiss={() => setDialogOpen(false)} onConfirm={() => setDialogOpen(false)}>
+                    <AlertDialog open={isDialogOpen}>
                         <AlertDialogContent>
                             <AlertDialogHeader>
                                 <AlertDialogTitle>Whoopeeeee!</AlertDialogTitle>
                                 <AlertDialogDescription>
-                                    Thanks for the contribution dude! If you've provided your email then I'll let you know when your asset is added.
+                                    Thanks for the contribution dude! If you&apos;ve provided your email then I&apos;ll let you know when your asset is added.
                                 </AlertDialogDescription>
                             </AlertDialogHeader>
                             <AlertDialogFooter>
@@ -162,7 +162,7 @@ const Navbar = () => {
                                                     <SheetHeader>
                                                         <SheetTitle>Not an Essay, Just a Few Details!</SheetTitle>
                                                         <SheetDescription>
-                                                            Hey there, I'm the developer of WebWoo (solo developer & student), well it took me some time to build this site and I'm glad you're here to contribute to the site by adding your assets.
+                                                        Hey there, I&apos;m the developer of WebWoo (solo developer &amp; student), well it took me some time to build this site and I&apos;m glad you&apos;re here to contribute to the site by adding your assets.
                                                         </SheetDescription>
                                                     </SheetHeader>
                                                     <br />
@@ -288,7 +288,7 @@ const Navbar = () => {
                                                         <SheetHeader>
                                                             <SheetTitle>Not an Essay, Just a Few Details!</SheetTitle>
                                                             <SheetDescription>
-                                                                Hey there, I'm the developer of WebWoo (solo developer & student), well it took me some time to build this site and I'm glad you're here to contribute to the site by adding your assets.
+                                                            Hey there, I&apos;m the developer of WebWoo (solo developer &amp; student), well it took me some time to build this site and I&apos;m glad you&apos;re here to contribute to the site by adding your assets.
                                                             </SheetDescription>
                                                         </SheetHeader>
                                                         <br />
