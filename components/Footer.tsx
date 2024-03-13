@@ -10,6 +10,11 @@ const Footer = () => {
                         <h1 className='text-[#09090b] dark:text-white text-7xl sm:text-8xl lg:text-9xl font-extrabold'>WebWoo.</h1>
                     </div>
                     <div className=''>
+                        <div className='flex justify-center mt-5'>
+                            <Link href="https://www.producthunt.com/posts/webwoo?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-webwoo">
+                                <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=444233&theme=dark" alt="WebWoo - End&#0032;the&#0032;search&#0044;&#0032;begin&#0032;creating | Product Hunt" style={{ width: "250px", height: "54px" }} />
+                            </Link>
+                        </div>
                         <ul className="mt-12 flex justify-center gap-6 md:gap-8 flex-col">
                             <li>
                                 <h1 className='dark:text-white text-black my-auto px-5 text-lg text-center'>Developed & Curated By
