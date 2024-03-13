@@ -6,14 +6,13 @@ import { Skeleton } from "@/components/ui/skeleton"
 import Footer from '@/components/Footer'
 
 const Assets = () => {
-    // const categories = ['Inspiration', 'Generators', 'Templates', 'Tools', 'Libraries', 'Technologies', 'Animations', 'Channels', 'Extensions', 'Typography']
-    const categories = ['Inspiration', 'Generators', 'UIElements']
+    const categories = ['Inspiration', 'Generators', 'UIElements', 'Technologies', 'Animations', 'Channels', 'Extensions', 'Typography']
     const [loaded, setLoaded] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoaded(true);
-        }, 1000); // adjust the time as needed
+        }, 100); // adjust the time as needed
 
         return () => clearTimeout(timer);
     }, []);

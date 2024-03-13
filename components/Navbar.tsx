@@ -111,7 +111,7 @@ const Navbar = () => {
         <>
             <header>
                 <div className="mx-auto flex h-16 max-w-screen items-center gap-8 px-4 sm:px-6 lg:px-8">
-                    <a className="block flex-row-reverse gap-3" href="/">
+                    <a className="flex flex-row-reverse gap-3" href="/">
                         <span className="sr-only">Home</span>
                         <h1 className="scroll-m-20 text-2xl font-extrabold tracking-tight lg:text-3xl pt-0.5">
                             WebWoo.
